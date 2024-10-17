@@ -1,0 +1,273 @@
+:root {
+    --background-color: #f5f5f5;
+    --text-color: #2c3e50;
+    --button-background: #2980b9;
+    --button-hover: #3498db;
+    --box-shadow: rgba(0, 0, 0, 0.1);
+    --font-color: #ffffff;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --background-color: #2c3e50;
+    --text-color: #f5f5f5;
+    --button-background: #3498db;
+    --button-hover: #2980b9;
+    --box-shadow: rgba(255, 255, 255, 0.1);
+    --font-color: #424242;
+}
+
+/* General Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+}
+
+h1, h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    display: block;
+    width: 200px;
+    padding: 15px;
+    margin: 15px auto;
+    background-color: var(--button-background);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 5px 15px var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: height 0.3s ease;
+}
+
+.nav-button:hover::before {
+    height: 100%;
+}
+.theme-toggle-container {
+    text-align: right;
+    padding: 10px;
+}
+
+.theme-toggle-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#theme-icon {
+    font-size: 24px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+/* Icons */
+.icon-sun::before {
+    content: "\2600"; /* Unicode for sun symbol */
+}
+
+.icon-moon::before {
+    content: "\1F319"; /* Unicode for crescent moon symbol */
+}
+
+/* Video Thumbnail and Button */
+.video-thumbnail {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--background-color);
+    width: 300px;
+    box-shadow: 0px 5px 15px var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.video-thumbnail:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+    transform: scale(1.05);
+}
+
+/* Watch Button */
+.watch-button {
+    display: block;
+    width: auto;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.watch-button:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+}
+
+/* Video Embeds */
+iframe {
+    width: 80%;
+    height: 400px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.02);
+}
+.back_btn{
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid green;
+}
+.back_btn:hover{
+    background-color: rgba(0, 128, 0, 0.308);
+}
+#popup{
+    background-color: var(--background-color);
+}
+#popup-content {
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+    color: var(--text-color);
+}
+.card {
+    background-color: var(--text-color);
+}
+p{
+    color: var(--font-color);
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Fade-In Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .video-thumbnail {
+        width: 90%;
+        margin: 15px auto;
+    }
+
+    .watch-button {
+        font-size: 14px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .nav-button {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .video-thumbnail {
+        width: 100%;
+    }
+
+    iframe {
+        height: 250px;
+    }
+}
+@media screen and (min-width: 770px) {
+    body{
+      display: none;
+    }
+  }
