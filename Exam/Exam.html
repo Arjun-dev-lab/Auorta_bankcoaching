@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Exam Interface</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <!-- Instructions Screen -->
+    <div id="instructions-screen" class="screen">
+        <h2>Instructions</h2>
+        <p>Read the instructions carefully before starting the quiz:</p>
+        <ul>
+            <li>Each question has four options. Select the correct one.</li>
+            <li>Use "Mark for Review" if you're unsure and want to revisit it later.</li>
+            <li>You can change your answers anytime before submission.</li>
+            <li>Click "Submit" when you're ready to finish the quiz.</li>
+        </ul>
+        <button class="start-button" onclick="startExam()">Start Quiz</button>
+    </div>
+
+    <!-- Exam Screen -->
+    <div id="exam-screen" class="screen" style="display: none;">
+        <div class="header">
+            <div class="timer">Time Left: <span id="time">15:00</span></div>
+        </div>
+
+        <div class="content">
+            <div class="question-container">
+                <div id="question-text" class="question-text"></div>
+                <div id="options" class="options">
+                    <label><input type="radio" name="option" value="A"> <span id="optionA"></span></label><br>
+                    <label><input type="radio" name="option" value="B"> <span id="optionB"></span></label><br>
+                    <label><input type="radio" name="option" value="C"> <span id="optionC"></span></label><br>
+                    <label><input type="radio" name="option" value="D"> <span id="optionD"></span></label>
+                </div>
+                <div class="buttons">
+                    <button onclick="saveAnswer()">Save Answer</button>
+                    <button onclick="markForReview()">Mark for Review</button>
+                    <button onclick="nextQuestion()">Next Question</button>
+                </div>
+            </div>
+
+            <div class="navigation-panel">
+                <h3>Question Navigation</h3>
+                <div id="question-nav" class="question-nav"></div>
+                <button onclick="submitExam()" class="submit-button">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Exam Results</h2>
+            <div id="results" class="results-content"></div>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="exam.js"></script>
+</body>
+</html>
